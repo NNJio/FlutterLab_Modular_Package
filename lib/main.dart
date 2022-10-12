@@ -8,7 +8,18 @@ void main(List<String> args) {
     ),
   );
 }
+//! Create process AppModule
+class AppModule extends Module {
+  List<Bind> get bind => [];
 
+  @override
+  List<ModularRoute> get routes => [
+    ChildRoute('/', child: (context, args) => const HomePage(),
+    ),
+  ];
+}
+
+//! Main Page
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
 
@@ -16,6 +27,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'My Smart App',
+      //! Add Modular Attribute     
       theme: ThemeData(primarySwatch: Colors.blue),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
@@ -23,16 +35,7 @@ class AppWidget extends StatelessWidget {
   }
 }
 
-class AppModule extends Module {
-  List<Bind> get bind => [];
-
-  @override
-  List<ModularRoute> get routes => [
-    ChildRoute('/', child: (context, args) => const HomePage()
-    ),
-  ];
-}
-
+//! Result HomePage
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
