@@ -1,9 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 void main(List<String> args) {
-  return runApp(ModularApp(module: AppModule(), child: const AppWidget()));
+    return runApp(ModularApp(
+      module: AppModule(), 
+      child: const AppWidget(),
+    ),
+  );
 }
 
 class AppWidget extends StatelessWidget {
@@ -25,8 +28,9 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const HomePage()),
-      ];
+    ChildRoute('/', child: (context, args) => const HomePage()
+    ),
+  ];
 }
 
 class HomePage extends StatelessWidget {
